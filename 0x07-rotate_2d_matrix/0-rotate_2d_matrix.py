@@ -1,7 +1,11 @@
 #!/usr/bin/python3
+"""2D matrix rotation module.
+"""
+
 
 def rotate_2d_matrix(matrix):
-    """rotates an m by n 2D matrix"""
+    """Rotates an m by n 2D matrix in place.
+    """
     if type(matrix) != list:
         return
     if len(matrix) <= 0:
@@ -16,10 +20,10 @@ def rotate_2d_matrix(matrix):
     for i in range(cols * rows):
         if i % rows == 0:
             matrix.append([])
-            if r == -1:
-                r = rows - 1
-                c += 1
-                matrix[-1].append(matrix[r][c])
-                if c == cols - 1 and r >= - 1:
-                    matrix.pop(r)
-                r -= 1
+        if r == -1:
+            r = rows - 1
+            c += 1
+        matrix[-1].append(matrix[r][c])
+        if c == cols - 1 and r >= -1:
+            matrix.pop(r)
+        r -= 1
